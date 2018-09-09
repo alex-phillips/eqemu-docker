@@ -93,6 +93,9 @@ pull-peq-quests: ##@assets Pulls ProjectEQ quests
 pull-docker-config: ##@assets Pulls default eqemu_config.json
 	docker-compose exec workspace bash -c "cd server && wget --no-check-certificate https://raw.githubusercontent.com/Akkadius/EQEmuInstall/master/eqemu_config_docker.json -O eqemu_config.json"
 
+pull-utility-scripts: ##@assets Pulls utility scripts (start/stop server)
+	docker-compose exec workspace bash -c "cd server && perl eqemu_server.pl utility-scripts"
+
 #----------------------
 # Build
 #----------------------
