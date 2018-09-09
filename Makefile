@@ -113,6 +113,9 @@ build-with-cores: ##@build Build EQEmu server (make build-with-cores <number>)
 bash: ##@workflow Bash into workspace
 	docker-compose exec workspace bash
 
+mysql-console: ##@workflow Jump into the MySQL container console
+	docker-compose exec workspace bash -c "mysql -u root -proot -h mariadb"
+
 chown-eqemu: ##@workflow Sets eqemu user ownership over files inside container
 	docker-compose exec workspace bash -c "sudo chown eqemu:eqemu * -R"
 	docker-compose exec workspace bash -c "sudo chmod 755 ./scripts/*"
