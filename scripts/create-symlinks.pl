@@ -36,3 +36,6 @@ foreach my $file (@files) {
 
     print `ln -s -f $source $target`
 }
+
+print `ln -s -f $server_path/quests/plugins $server_path/plugins`;
+print `ln -s -f $server_path/quests/lua_modules $server_path/lua_modules`;
