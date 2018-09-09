@@ -107,6 +107,9 @@ init-build: ##@build Initialize build
 build: ##@build Build EQEmu server
 	docker-compose exec workspace bash -c 'cd code/build && make'
 
+build-clean: ##@build Cleans build directory
+	docker-compose exec workspace bash -c 'cd code/build && make clean'
+
 build-with-cores: ##@build Build EQEmu server (make build-with-cores <number>)
 	docker-compose exec workspace bash -c 'cd code/build && make -j$(RUN_ARGS)'
 
