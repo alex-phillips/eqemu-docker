@@ -46,6 +46,8 @@ help: ##@other Show this help.
 #----------------------
 
 install: ##@init Install full application
+	docker-compose build
+	make up
 	make init-server-directories
 	make pull-eqemu-code
 	make pull-peq-quests
@@ -55,7 +57,7 @@ install: ##@init Install full application
 	make build
 	make pull-docker-config
 	make init-peq-database
-	make up
+	make restart
 
 init-server-directories: ##@init Initializes server directories
 	mkdir -p ./code
