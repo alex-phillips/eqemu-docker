@@ -95,6 +95,7 @@ pull-docker-config: ##@assets Pulls default eqemu_config.json
 
 pull-utility-scripts: ##@assets Pulls utility scripts (start/stop server)
 	docker-compose exec workspace bash -c "cd server && perl eqemu_server.pl utility_scripts"
+	make chown-eqemu
 
 #----------------------
 # Build
@@ -122,6 +123,7 @@ mysql-console: ##@workflow Jump into the MySQL container console
 chown-eqemu: ##@workflow Sets eqemu user ownership over files inside container
 	docker-compose exec workspace bash -c "sudo chown eqemu:eqemu * -R"
 	docker-compose exec workspace bash -c "sudo chmod 755 ./scripts/*"
+	docker-compose exec workspace bash -c "sudo chmod 755 ./server/*.sh"
 
 #----------------------
 # Docker
