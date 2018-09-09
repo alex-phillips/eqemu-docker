@@ -13,16 +13,18 @@ services:
       - ./code:/home/eqemu/code:delegated
       - ./scripts:/home/eqemu/scripts:delegated
     ports:
-      - 2222:22/tcp
-      - 2222:22/udp
-      - 9000:9000/tcp
-      - 9000:9000/udp
-      - 5999:5999/tcp
-      - 5999:5999/udp
-      - 5998:5998/tcp
-      - 5998:5998/udp
-      - 7000-7100:7000-7100/tcp
-      - 7000-7100:7000-7100/udp
+      - 2222/tcp:22/tcp
+      - 2222/udp:22/udp
+      - 9000/tcp:9000/tcp
+      - 9000/udp:9000/udp
+      - 5999/tcp:5999/tcp
+      - 5999/udp:5999/udp
+      - 5998/tcp:5998/tcp
+      - 5998/udp:5998/udp
+      - 7000-7100/tcp:7000-7100/tcp
+      - 7000-7100/tcp:7000-7100/udp
+    command: >
+      bash -c "./scripts/create-symlinks.pl; /bin/bash"
     tty: true
     networks:
       - backend

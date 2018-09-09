@@ -51,6 +51,10 @@ install: ##@init Install full application
 	make pull-peq-quests
 	make pull-eqemu-server-script
 	make pull-maps
+	make init-build
+	make build
+	make pull-docker-config
+	make init-peq-database
 	make up
 
 init-server-directories: ##@init Initializes server directories
