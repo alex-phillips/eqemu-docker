@@ -125,8 +125,8 @@ mysql-console: ##@workflow Jump into the MySQL container console
 
 chown-eqemu: ##@workflow Sets eqemu user ownership over files inside container
 	docker-compose exec workspace bash -c "sudo chown eqemu:eqemu * -R"
-	docker-compose exec workspace bash -c "sudo chmod 755 ./scripts/*"
-	docker-compose exec workspace bash -c "sudo chmod 755 ./server/*.sh"
+	docker-compose exec workspace bash -c "sudo chmod -f 755 ./scripts/* || :"
+	docker-compose exec workspace bash -c "sudo chmod -f 755 ./server/*.sh || :"
 
 #----------------------
 # Docker
