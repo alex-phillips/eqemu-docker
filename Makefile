@@ -82,6 +82,7 @@ pull-maps: ##@assets Pulls maps
 	docker-compose exec workspace bash -c "cd server && wget https://codeload.github.com/Akkadius/EQEmuMaps/zip/master -O maps.zip && unzip -o maps.zip && rm ./maps -rf && mv EQEmuMaps-master maps && rm maps.zip"
 
 pull-eqemu-code: ##@assets Pulls eqemu code
+	make chown-eqemu
 	docker-compose exec workspace bash -c "git -C ./code pull 2> /dev/null || git clone https://github.com/EQEmu/Server.git code"
 
 pull-eqemu-server-script: ##@assets Pulls eqemu_server.pl
