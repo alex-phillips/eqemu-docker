@@ -130,6 +130,16 @@ chown-eqemu: ##@workflow Sets eqemu user ownership over files inside container
 	docker-compose exec workspace bash -c "sudo chmod -f 755 ./server/*.sh || :"
 
 #----------------------
+# Server
+#----------------------
+
+server-start: ##@server Start EQEmu Server
+	docker-compose exec workspace bash -c "cd server && ./server_start.sh"
+
+server-stop: ##@server Stop EQEmu Server
+	docker-compose exec workspace bash -c "cd server && ./server_stop.sh"
+
+#----------------------
 # Docker
 #----------------------
 
