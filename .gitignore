@@ -1,4 +1,4 @@
-data/*
-server/*
-code/*
-.idea/*
+data/
+server/
+code/
+.idea/
