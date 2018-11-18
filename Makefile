@@ -57,6 +57,7 @@ install: ##@init Install full application
 	make build
 	make pull-docker-config
 	make init-peq-database
+	make pull-utility-scripts
 	make restart
 
 init-server-directories: ##@init Initializes server directories
@@ -134,7 +135,7 @@ chown-eqemu: ##@workflow Sets eqemu user ownership over files inside container
 #----------------------
 
 server-start: ##@server Start EQEmu Server
-	docker-compose exec workspace bash -c "cd server && perl server_launcher.pl zones=20 silent_launcher" &
+	docker-compose exec workspace bash -c "cd server && ./shared_memory && perl server_launcher.pl zones=20 silent_launcher" &
 	@echo "Server started, docker-compose errors can be safely ignored"
 
 server-stop: ##@server Stop EQEmu Server
